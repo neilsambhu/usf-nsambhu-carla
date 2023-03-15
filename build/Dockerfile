@@ -21,8 +21,6 @@ RUN pip3 install --upgrade pip \
     && pip install wheel \
     && pip3 install wheel auditwheel
 
-COPY UnrealEngine.zip /usr/src/install/UnrealEngine.zip
-COPY carla.zip /usr/src/install/carla.zip
 COPY install.sh /usr/src/install/install.sh
 
 RUN groupadd -g 1000 jadorno 

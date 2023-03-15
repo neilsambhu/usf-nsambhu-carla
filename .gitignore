@@ -1,7 +1,6 @@
 ._*
 *.log
 workspace
-build/UnrealEngine.zip
-build/carla.zip
+build-cache
 .DS_Store
 scripts/Dockerfile-nsambhu
