@@ -1,19 +1,19 @@
 # /bin/bash
 
-# echo [exe] rm -rf /usr/src/app/UnrealEngine
-# rm -rf /usr/src/app/UnrealEngine
-# cd /usr/src/app/
-# 7z x /usr/src/install/UnrealEngine.zip
+echo [exe] rm -rf /usr/src/app/UnrealEngine
+rm -rf /usr/src/app/UnrealEngine
+cd /usr/src/app/
+7z x /usr/src/install/UnrealEngine.zip
 
-# cd UnrealEngine
-# echo [exe] Setup.sh
-# ./Setup.sh
-# echo [exe] GenerateProjectFiles.sh
-# ./GenerateProjectFiles.sh
-# echo [exe] make -j 4
-# make -j 4
-# echo [exe] bash Engine/Build/BatchFiles/Linux/Build.sh ShaderCompileWorker Linux Development
-# bash Engine/Build/BatchFiles/Linux/Build.sh ShaderCompileWorker Linux Development
+cd /usr/src/app/UnrealEngine
+echo [exe] Setup.sh
+./Setup.sh
+echo [exe] GenerateProjectFiles.sh
+./GenerateProjectFiles.sh
+echo [exe] make -j 4
+make -j 4
+echo [exe] bash Engine/Build/BatchFiles/Linux/Build.sh ShaderCompileWorker Linux Development
+bash Engine/Build/BatchFiles/Linux/Build.sh ShaderCompileWorker Linux Development
 
 rm -rfv /usr/src/app/carla
 cd /usr/src/app/
