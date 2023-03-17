@@ -1,6 +1,6 @@
 ._*
 *.log
-workspace
-build-cache
+workspace/*
+build-cache/*
 .DS_Store
 scripts/Dockerfile-nsambhu
