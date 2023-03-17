@@ -23,8 +23,7 @@ export UE4_ROOT=/usr/src/app/UnrealEngine
 
 cd /usr/src/app/carla
 git checkout 0.9.13
-git checkout f628f204b44ca5f416e4d54eedfea3f9dc4a86c4 Util/BuildTools/Setup.sh
-cp -R /usr/src/cache/Content.tar.gz /usr/src/app/Content.tar.gz
+sed -i 's~XERCESC_REPO=https://ftp.cixug.es/apache//xerces/c/3/sources/xerces-c-${XERCESC_VERSION}.tar.gz~XERCESC_REPO=https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-${XERCESC_VERSION}.tar.gz~g' Util/BuildTools/Setup.sh
 echo [exe] Update.sh
 ./Update.sh
 echo [exe] make -j 4 PythonAPI
