@@ -3,7 +3,7 @@
 echo [exe] rm -rf /usr/src/app/UnrealEngine
 rm -rf /usr/src/app/UnrealEngine
 cd /usr/src/app/
-7z x /usr/src/cache/UnrealEngine.zip
+git clone --depth 1 -b carla git@github.com:CarlaUnreal/UnrealEngine.git
 
 cd /usr/src/app/UnrealEngine
 echo [exe] Setup.sh
@@ -17,7 +17,7 @@ bash Engine/Build/BatchFiles/Linux/Build.sh ShaderCompileWorker Linux Developmen
 
 rm -rfv /usr/src/app/carla
 cd /usr/src/app/
-7z x /usr/src/cache/carla.zip
+git clone https://github.com/carla-simulator/carla
 
 export UE4_ROOT=/usr/src/app/UnrealEngine
 
