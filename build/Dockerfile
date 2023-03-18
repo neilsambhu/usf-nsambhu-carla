@@ -23,8 +23,8 @@ RUN pip3 install --upgrade pip \
 
 COPY install.sh /usr/src/install/install.sh
 
-RUN groupadd -g 1000 jadorno 
-RUN useradd -d /home/jadorno -s /bin/bash -m jadorno -u 1000 -g 1000 
+RUN groupadd -g 1000 baguette 
+RUN useradd -s /bin/bash -m baguette -u 1000 -g 1000 
 
 WORKDIR /usr/src/app
-USER jadorno
+USER baguette
