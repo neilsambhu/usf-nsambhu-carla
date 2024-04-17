@@ -21,8 +21,6 @@ RUN pip3 install --upgrade pip \
     && pip install wheel \
     && pip3 install wheel auditwheel
 
-COPY install.sh /usr/src/install/install.sh
-
 RUN groupadd -g 1000 baguette 
 RUN useradd -s /bin/bash -m baguette -u 1000 -g 1000 
 
