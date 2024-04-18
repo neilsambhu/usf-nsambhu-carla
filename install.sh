@@ -28,6 +28,8 @@ export UE4_ROOT=/usr/src/app/UnrealEngine-carla
 cd /usr/src/app/carla-simulator
 # echo [exe] Update.sh
 # ./Update.sh
+echo [exe] mkdir -pv Unreal/CarlaUE4/Content/Carla
+mkdir -pv Unreal/CarlaUE4/Content/Carla
 echo [exe] tar -xvzf ../cache/20221201_5ec9328.tar.gz -C Unreal/CarlaUE4/Content/Carla
 tar -xvzf ../cache/20221201_5ec9328.tar.gz -C Unreal/CarlaUE4/Content/Carla
 echo [exe] make -j 4 PythonAPI
