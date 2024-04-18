@@ -21,8 +21,8 @@ RUN pip3 install --upgrade pip \
     && pip install wheel \
     && pip3 install wheel auditwheel
 
-RUN groupadd -g 1000 baguette 
-RUN useradd -s /bin/bash -m baguette -u 1000 -g 1000 
+RUN groupadd -g 1000 carla 
+RUN useradd -s /bin/bash -m carla -u 1000 -g 1000 
 
 WORKDIR /usr/src/app
 USER baguette
