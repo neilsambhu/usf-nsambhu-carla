@@ -41,5 +41,5 @@ echo [exe] cp -v ../cache/AdditionalMaps_0.9.14.tar.gz Import/AdditionalMaps_0.9
 cp -v ../cache/AdditionalMaps_0.9.14.tar.gz Import/AdditionalMaps_0.9.14.tar.gz
 echo [exe] cp -v ../cache/CARLA_0.9.14_RSS.tar.gz Import/CARLA_0.9.14_RSS.tar.gz
 cp -v ../cache/CARLA_0.9.14_RSS.tar.gz Import/CARLA_0.9.14_RSS.tar.gz
-echo [exe] bash ImportAssets.sh
-bash ImportAssets.sh
+echo [exe] bash Util/ImportAssets.sh
+bash Util/ImportAssets.sh
