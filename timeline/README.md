@@ -13,3 +13,8 @@ sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest
 ```
 scp carla.sif nsambhu@circe:~/
 ```
+5/7/2024 12:35 pm: login to circe. add module.  
+```
+module purge && \
+module add apps/singularity/3.5.3
+```
