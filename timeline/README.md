@@ -26,3 +26,10 @@ scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
 ```
 singularity run carla.sif
 ```
+## Make container and send to CIRCE
+5/7/2024 4:57 PM: pipeline
+```
+sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && \
+sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest && \
+scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```

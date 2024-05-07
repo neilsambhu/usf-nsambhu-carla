@@ -27,4 +27,4 @@ RUN useradd -s /bin/bash -m carla -u 1000 -g 1000
 WORKDIR /usr/src/app
 #USER baguette
 
-RUN whoami
+ENTRYPOINT ['whoami']
