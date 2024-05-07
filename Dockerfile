@@ -25,6 +25,6 @@ RUN groupadd -g 1000 carla
 RUN useradd -s /bin/bash -m carla -u 1000 -g 1000 
 
 WORKDIR /usr/src/app
-USER baguette
+#USER baguette
 
 RUN whoami

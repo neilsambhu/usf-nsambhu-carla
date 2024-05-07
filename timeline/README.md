@@ -18,3 +18,11 @@ scp carla.sif nsambhu@circe:~/
 module purge && \
 module add apps/singularity/3.5.3
 ```
+5/7/2024 4:47 PM: new copy carla.sif to remote.  
+```
+scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```
+5/7/2024 4:47 PM: run carla.sif
+```
+singularity run carla.sif
+```
