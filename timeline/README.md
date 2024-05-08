@@ -33,3 +33,9 @@ sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-so
 sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest && \
 scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
 ```
+5/7/2024 6:40 PM: remove old image
+```
+sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && \
+sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest && \
+scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```

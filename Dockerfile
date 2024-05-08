@@ -12,19 +12,34 @@ RUN apt-key adv --fetch-keys "https://developer.download.nvidia.com/compute/cuda
     && update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-8/bin/clang 180 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade pip \
-    && pip install --upgrade pip \
-    && pip install setuptools \
-    && pip3 install -Iv setuptools==47.3.1 \
-    && pip install distro \
-    && pip3 install distro \
-    && pip install wheel \
-    && pip3 install wheel auditwheel
-
 RUN groupadd -g 1000 carla 
 RUN useradd -s /bin/bash -m carla -u 1000 -g 1000 
 
-WORKDIR /usr/src/app
-#USER baguette
+RUN apt-get update && \
+    apt-get -y install sudo
 
-ENTRYPOINT ['whoami']
+RUN sudo apt-get update && \
+    sudo apt-get install wget software-properties-common && \
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test && \
+    wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add
+
+RUN sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main"
+RUN sudo apt-get update
+RUN sudo apt-get install build-essential clang-8 lld-8 g++-7 cmake ninja-build libvulkan1 python python-pip python-dev python3-dev python3-pip libpng-dev libtiff5-dev libjpeg-dev tzdata sed curl unzip autoconf libtool rsync libxml2-dev git
+RUN sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-8/bin/clang++ 180
+RUN sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-8/bin/clang 180
+
+RUN pip3 -V
+RUN pip3 install --upgrade pip
+RUN pip install --user setuptools
+RUN pip3 install --user -Iv setuptools==47.3.1
+RUN pip install --user distro 
+RUN pip3 install --user distro 
+RUN pip install --user wheel 
+RUN pip3 install --user wheel auditwheel
+
+# new build info below
+# RUN git clone --depth 1 -b carla https://neilsambhu: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@github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
+RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
+RUN cd ~/UnrealEngine_4.26
+
