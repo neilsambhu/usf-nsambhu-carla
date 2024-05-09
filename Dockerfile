@@ -39,7 +39,7 @@ RUN pip install --user wheel
 RUN pip3 install --user wheel auditwheel
 
 # new build info below
-# RUN git clone --depth 1 -b carla https://neilsambhu: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@github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
-RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
+RUN git clone --depth 1 -b carla https://neilsambhu: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@github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
+# RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
 RUN cd ~/UnrealEngine_4.26
 
