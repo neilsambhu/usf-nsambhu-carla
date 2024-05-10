@@ -44,7 +44,7 @@ ENTRYPOINT eval "$(ssh-agent -s)"
 ENTRYPOINT pwd
 ENTRYPOINT ssh-add ~/.ssh/id_rsa
 
-# RUN git clone --depth 1 -b carla https://neilsambhu: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@github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
+# RUN git clone --depth 1 -b carla git@github.com:CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
 # RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
 # RUN cd ~/UnrealEngine_4.26
 
