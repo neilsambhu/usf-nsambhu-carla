@@ -39,3 +39,12 @@ sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-so
 sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest && \
 scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
 ```
+## Use CARLA Docker documentation
+5/9/2024 2:49 PM: navigate to directory for Docker CARLA
+```
+(carla_py3.9) nsambhu@SAMBHU25:~/github/carla$ cd Util/Docker
+```
+5/9/2024 2:55 PM: docker build
+```
+docker build --build-arg EPIC_USER=neilsambhu --build-arg EPIC_PASS=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 -t carla-prerequisites -f Prerequisites.Dockerfile .
+```
