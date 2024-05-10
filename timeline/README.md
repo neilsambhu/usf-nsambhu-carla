@@ -48,3 +48,9 @@ scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
 ```
 docker build --build-arg EPIC_USER=neilsambhu --build-arg EPIC_PASS=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 -t carla-prerequisites -f Prerequisites.Dockerfile .
 ```
+5/10/2024 12:56 PM: TODO: understand docker build  
+5/10/2024 1:15PM: current: build and list current directory. 
+next: change build instructions
+```
+
+```

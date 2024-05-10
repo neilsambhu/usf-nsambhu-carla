@@ -40,9 +40,12 @@ RUN pip3 install --user wheel auditwheel
 
 # new build info below
 # get ssh key
-ENTRYPOINT eval "$(ssh-agent -s)"
-ENTRYPOINT pwd
-ENTRYPOINT ssh-add ~/.ssh/id_rsa
+RUN apt-get update && apt-get install -y openssh-server
+RUN eval "$(ssh-agent -s)"
+RUN mkdir -p /home/carla/.ssh
+COPY id_rsa /home/carla/.ssh/
+ENTRYPOINT ["ls -lh /home/"]
+#RUN ssh-add /home/carla/.ssh/id_rsa
 
 # RUN git clone --depth 1 -b carla git@github.com:CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
 # RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
