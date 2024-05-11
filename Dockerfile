@@ -53,9 +53,8 @@ RUN pip3 install --user wheel auditwheel
 # RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
 # RUN cd ~/UnrealEngine_4.26
 
-ENTRYPOINT ["echo", "$HOME"]
-
 #COPY UnrealEngine_4.26 $HOME/
+#ENTRYPOINT ls $HOME
 
 #WORKDIR $HOME/UnrealEngine_4.26
 #RUN ./Setup.sh 
