@@ -68,3 +68,30 @@ sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-so
 ```
 scp -r $HOME/UnrealEngine_4.26 nsambhu@circe:~/
 ```
+~5/10/2024 9:46 PM: Docker build instructions with access to home directory~
+~5/10/2024 9:53 PM: singularity update option~
+```
+sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build --update carla.sif docker-daemon://usf-nsambhu-carla:latest && scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```
+5/10/2024 9:53 PM: singularity sandbox option
+```
+sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build --sandbox carla.sif docker-daemon://usf-nsambhu-carla:latest && scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```
+5/10/2024 10:10 PM: new sandbox update with recursive file transfer
+```
+sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build --sandbox --update carla docker-daemon://usf-nsambhu-carla:latest && scp -r carla nsambhu@circe:~/github/usf-nsambhu-carla
+```
+5/10/2024 10:16 PM: transferring files from carla directory to circe takes too long
+```
+sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest && scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```
+5/10/2024 10:20PM: local carla sandbox build
+```
+sudo docker build -t usf-nsambhu-carla:local /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build --sandbox --update carla docker-daemon://usf-nsambhu-carla:local && singularity run carla
+```
+5/10/2024 10:26 PM: remote carla build
+```
+sudo docker build -t usf-nsambhu-carla:remote /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:remote && scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
+```
+5/10/2024 10:36 PM: carla container keeps printing $HOME. Trying to rebuild without cache.  
+5/10/2024 10:40 PM: carla keep printint $HOME. I will stick to the remote carla build.  
