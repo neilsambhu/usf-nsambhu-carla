@@ -54,3 +54,4 @@ RUN pip3 install --user wheel auditwheel
 # RUN cd ~/UnrealEngine_4.26
 
 COPY UnrealEngine_4.26 $HOME/
+ENTRYPOINT ["alias", "$HOME"]

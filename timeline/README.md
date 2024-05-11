@@ -64,3 +64,7 @@ drwxr-xr-x 3 nsambhu usfuser 60 May 10 14:10 n
 ```
 sudo docker build -t usf-nsambhu-carla /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:latest && scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
 ```
+5/10/2024 9:28 pm: scp copy Unreal Engine repository to CIRCE
+```
+scp -r $HOME/UnrealEngine_4.26 nsambhu@circe:~/
+```
