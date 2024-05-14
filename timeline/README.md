@@ -94,4 +94,39 @@ sudo docker build -t usf-nsambhu-carla:local /home/nsambhu/github/usf-nsambhu-ca
 sudo docker build -t usf-nsambhu-carla:remote /home/nsambhu/github/usf-nsambhu-carla-source/ && sudo singularity build carla.sif docker-daemon://usf-nsambhu-carla:remote && scp carla.sif nsambhu@circe:~/github/usf-nsambhu-carla
 ```
 5/10/2024 10:36 PM: carla container keeps printing $HOME. Trying to rebuild without cache.  
-5/10/2024 10:40 PM: carla keep printint $HOME. I will stick to the remote carla build.  
+5/10/2024 10:40 PM: carla keeps printing $HOME. I will stick to the remote carla build.  
+5/11/2024 7:22 PM: TODO: make nsambhu user account in Dockerfile > create Dockerfile in stages 
+5/13/2024 9:28 AM: cleanup circe file count
+```
+rm -rf Algorithms        cp_script.sh      OutputTest1         slurm-11684612.out  slurm-11781289.out Combine_NP_2.py               slurm-11678109.out  slurm-11687476.out  slurm-11781346.out Combine_NP.py     JPEG_to_NP_2.py   slurm-11680211.out  slurm-11691748.out  tar_script.sh Combine_NP.pyc    load_np.py        slurm-11680213.out  slurm-11780784.out   copy_tar.sh       NumpyArrayOutput  slurm-11680779.out  slurm-11780854.out  v2j.sh COT4400_Project3  op_test2          slurm-11683748.out  slurm-11781022.out
+```
+```
+[nsambhu@itn0 ~]$ myquota
+
+RC Filesystem Current Quota Utilization:
+Date: Mon May 13 09:30:10 EDT 2024
+
+
+Filesystem        Space Used  Space Quota  % of Quota  File Count  File Count Quota  % of Quota
+CIRCE /home       42.24 GB    2.00 TB      2%          204790      204800            99% 
+shares            none                                                                            
+CIRCE /work       0 KB        2.00 TB      0%          1           691200            0% 
+CIRCE /work_bgfs  0 Byte      2.00 TiB     0%          0           626000            0%
+
+
+For more information about the data above, please refer to the manual page using the command:  man myquota
+
+[nsambhu@itn0 ~]$ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr
+
+ 201575 UnrealEngine_4.26
+   1015 .local
+    872 OutputTest1
+    871 NumpyArrayOutput
+    285 .cache
+     87 github
+     13 .config
+     11 COT4400_Project3
+      8 .singularity
+      5 .ssh
+[...]
+```

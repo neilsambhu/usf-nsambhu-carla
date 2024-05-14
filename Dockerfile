@@ -12,11 +12,22 @@ RUN apt-key adv --fetch-keys "https://developer.download.nvidia.com/compute/cuda
     && update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-8/bin/clang 180 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -g 1000 carla 
-RUN useradd -s /bin/bash -m carla -u 1000 -g 1000 
-
+# Install sudo package
 RUN apt-get update && \
-    apt-get -y install sudo
+    apt-get install -y sudo && \
+    rm -rf /var/lib/apt/lists/*
+# Create a new user named 'nsambhu'
+RUN useradd -m -s /bin/bash nsambhu
+# Add 'nsambhu' to the 'sudo' group
+RUN usermod -aG sudo nsambhu
+# Set password for 'nsambhu' (change 'password' to your desired password)
+RUN echo 'nsambhu:password' | chpasswd
+# Set up sudoers file to allow sudo without password prompt
+RUN echo 'nsambhu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+# Switch to the 'nsambhu' user
+USER nsambhu
+# Set the working directory to the home directory of 'nsambhu'
+#WORKDIR /home/nsambhu
 
 RUN sudo apt-get update && \
     sudo apt-get install wget software-properties-common && \
@@ -38,26 +49,12 @@ RUN pip3 install --user distro
 RUN pip install --user wheel 
 RUN pip3 install --user wheel auditwheel
 
-# new build info below
-# get ssh key
-#RUN apt-get update && apt-get install -y openssh-client
-#RUN eval "$(ssh-agent -s)"
-#WORKDIR /home/n/nsambhu/
-#RUN mkdir .ssh
-#COPY id_rsa /home/n/nsambhu/.ssh/
-# ENTRYPOINT ["ls", "-lh", "/home/n/nsambhu"]
-#ENTRYPOINT ["ls", "-lah", "/home/n/nsambhu/.ssh"]
-#RUN ssh-add id_rsa
-
-# RUN git clone --depth 1 -b carla git@github.com:CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
-# RUN git clone --depth 1 -b carla https://github.com/neilsambhu/UnrealEngine.git ~/UnrealEngine_4.26
-# RUN cd ~/UnrealEngine_4.26
-
-#COPY UnrealEngine_4.26 $HOME/
-#ENTRYPOINT ls $HOME
+COPY UnrealEngine_4.26 $HOME/
 
 #WORKDIR $HOME/UnrealEngine_4.26
-#RUN ./Setup.sh 
+# new build info below
+#ENTRYPOINT ls 
+RUN UnrealEngine_4.26/Setup.sh 
 #RUN ./GenerateProjectFiles.sh 
 #RUN make
 #RUN cd ~/UnrealEngine_4.26/Engine/Binaries/Linux && ./UE4Editor
